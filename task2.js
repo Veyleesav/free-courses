@@ -1,11 +1,16 @@
-/* Task 2 */
-const months = { "января": 0, "февраля": 1, "марта": 2, "апреля": 3, "мая": 4, "июня": 5, "июля": 6, "августа": 7, "сентября": 8, "октября": 9, "ноября": 10, "декабря": 11 };
-let day = process.argv[1];
-let month = months[process.argv[2]];
-let year = process.argv[3];
-let initialDate = new Date(year, month, day);
-let finalDate = new Date(year, 11, 31);
-const msPerDay = 24*60*60*1000;
-let res = Math.ceil((finalDate.getTime() - initialDate.getTime())/msPerDay);
-process.stdout.write(res.toString());
-/* Put your code here */
+let arrA =  process.argv[1].replace(/'/g, "").split("");
+let arrB =  process.argv[2].replace(/'/g, "").split("");
+let JsonB = JSON.stringify(arrB); //to work with JSON obj
+let shiftCount = -1;
+for(let i = 1; i <= arrA.length; i++ )
+{
+    arrA = arrA.concat(arrA.shift());
+
+    if(JSON.stringify(arrA) === JsonB)
+    {
+        shiftCount = ( i > arrA.length/2 )?arrA.length-i:i;
+        break;
+    }
+}
+
+process.stdout.write(shiftCount.toString());
