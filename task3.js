@@ -1,6 +1,6 @@
 /* Task 3 */
-let t1 = parseInt(process.argv[1]);
-let t2 = parseInt(process.argv[2]);
+let t1 = parseInt(process.argv[2]);
+let t2 = parseInt(process.argv[3]);
 let timeSum = t1+t2;
 let sec_num = parseInt(timeSum); //second parameter is 10 by default so no need in it
 let hours   = Math.floor(sec_num / 3600);
